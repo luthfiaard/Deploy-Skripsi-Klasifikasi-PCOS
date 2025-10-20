@@ -19,16 +19,16 @@ if "history" not in st.session_state:
 
 # === Mapping deskripsi & contoh input ===
 feature_info = {
-    "Follicle No. (R)": {"desc": "Jumlah folikel di ovarium kanan", "range": "Contoh: 0 - 25"},
-    "Follicle No. (L)": {"desc": "Jumlah folikel di ovarium kiri", "range": "Contoh: 0 - 25"},
+    "Follicle No. (R)": {"desc": "Masukkan jumlah folikel di ovarium kanan", "range": "Contoh: 0 - 25"},
+    "Follicle No. (L)": {"desc": "Masukkan jumlah folikel di ovarium kiri", "range": "Contoh: 0 - 25"},
     "Skin darkening (Y/N)": {"desc": "Apakah terdapat penggelapan kulit", "range": "Pilih: Tidak (0) / Ya (1)"},
     "Weight gain(Y/N)": {"desc": "Apakah terjadi peningkatan berat badan", "range": "Pilih: Tidak (0) / Ya (1)"},
     "hair growth(Y/N)": {"desc": "Apakah terjadi pertumbuhan rambut berlebih", "range": "Pilih: Tidak (0) / Ya (1)"},
-    "Cycle(R/I)": {"desc": "Tipe siklus menstruasi", "range": "Pilih: Regular / Teratur (0) atau Irregular / Tidak Teratur (1)"},
-    "AMH(ng/mL)": {"desc": "Nilai Anti-Müllerian Hormone", "range": "Contoh: 1 - 10"},
+    "Cycle(R/I)": {"desc": "Tipe siklus menstruasi", "range": "Pilih: Regular = Teratur (0) atau Irregular = Tidak Teratur (1)"},
+    "AMH(ng/mL)": {"desc": "Masukkan nilai Anti-Müllerian Hormone", "range": "Contoh: 1 - 10"},
     "Cycle length(days)": {"desc": "Panjang siklus menstruasi (hari)", "range": "Contoh: 21 - 35"},
-    "FSH(mIU/mL)": {"desc": "Nilai Follicle-Stimulating Hormone", "range": "Contoh: 3 - 15"},
-    "LH(mIU/mL)": {"desc": "Nilai Luteinizing Hormone", "range": "Contoh: 2 - 20"}
+    "FSH(mIU/mL)": {"desc": "Masukkan nilai Follicle-Stimulating Hormone", "range": "Contoh: 3 - 15"},
+    "LH(mIU/mL)": {"desc": "Masukkan nilai Luteinizing Hormone", "range": "Contoh: 2 - 20"}
 }
 
 # === Form input ===
@@ -47,7 +47,7 @@ for feature in selected_features:
             user_input[feature] = 1.0 if "Ya" in pilihan else 0.0
 
     elif feature == "Cycle(R/I)":
-        pilihan = st.selectbox(feature, ["Pilih...", "Regular (0)", "Irregular (1)"], label_visibility="collapsed", key=feature)
+        pilihan = st.selectbox(feature, ["Pilih...", "Regular = Teratur (0)", "Irregular = Tidak Teratur (1)"], label_visibility="collapsed", key=feature)
         if pilihan == "Pilih...":
             user_input[feature] = None
         else:
@@ -164,4 +164,5 @@ if history_btn:
         st.dataframe(hist_df, use_container_width=True)
     else:
         st.info("Belum ada riwayat prediksi yang tersimpan.")
+
 
