@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # === Load model dan fitur ===
-bundle = joblib.load("final_model_with_features.sav")
+bundle = joblib.load("final_klasifikasiPCOS.sav")
 model = bundle["model"]
 selected_features = bundle["features"]
 
@@ -164,3 +164,4 @@ if history_btn:
         st.dataframe(hist_df, use_container_width=True)
     else:
         st.info("Belum ada riwayat prediksi yang tersimpan.")
+
