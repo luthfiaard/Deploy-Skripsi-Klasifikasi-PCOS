@@ -4,7 +4,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # === Load model dan fitur ===
-bundle = pickle.load("final_klasifikasiPCOS.sav")
+with open("final_klasifikasiPCOS.sav", "rb") as f:
+    bundle = pickle.load(f)
 model = bundle["model"]
 selected_features = bundle["features"]
 
@@ -164,6 +165,7 @@ if history_btn:
         st.dataframe(hist_df, use_container_width=True)
     else:
         st.info("Belum ada riwayat prediksi yang tersimpan.")
+
 
 
 
